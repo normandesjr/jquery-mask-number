@@ -13,8 +13,7 @@
 	$.fn.maskNumber = function(options) {
 
 		var settings = $.extend({}, $.fn.maskNumber.defaults, options);
-
-        settings = $.extend({}, options);
+        settings = $.extend(settings, options);
         settings = $.extend(settings, this.data());
 
 		this.keyup(function() {
