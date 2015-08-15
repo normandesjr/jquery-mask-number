@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+
+	<span>Currency default:</span>
+	<input name="currency-default"/>
+	<br/><br/>
+	<span>Currency change options via data attributes:</span>
+	<input name="currency-data-attributes" data-decimal="," data-thousands="."/>
+	<br/><br/>
+	<span>Currency change options via configuration:</span>
+	<input name="currency-configuration"/>
+	<br/><br/>
+	<hr/>
+	<br/>
+	<span>Integer default:</span>
+	<input name="integer-default"/>
+	<br/><br/>
+	<span>Integer change thousands via data attribute:</span>
+	<input name="integer-data-attribute" data-thousands="."/>
+	<br/><br/>
+	<span>Integer change thousands via configuration:</span>
+	<input name="integer-configuration"/>
+
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="../jquery.masknumber.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$('[name=currency-default]').maskNumber();
+			$('[name=currency-data-attributes]').maskNumber();
+			$('[name=currency-configuration]').maskNumber({decimal: '_', thousands: '*'});
+			$('[name=integer-default]').maskNumber({integer: true});
+			$('[name=integer-data-attribute]').maskNumber({integer: true});
+			$('[name=integer-configuration]').maskNumber({integer: true, thousands: '_'});
+		});
+	</script>
+
+</body>
+</html>
