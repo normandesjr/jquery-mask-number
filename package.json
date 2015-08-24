@@ -1,6 +1,6 @@
 {
   "name": "jquery-mask-number",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A jQuery plugin to mask numbers (currency and integer).",
   "main": "jquery.masknumber.js",
   "keywords": [
