@@ -2,7 +2,7 @@
   "name": "jquery-mask-number",
   "version": "1.0.1",
   "description": "A jQuery plugin to mask numbers (currency and integer).",
-  "license" : "MIT",
+  "license" : "GPL-3.0+",
   "main": "jquery.masknumber.js",
   "keywords": [
   	"jquery", 
