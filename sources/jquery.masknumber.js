@@ -27,21 +27,22 @@
         thousands: ",",
         decimal: ".",
         integer: false,
+        allowNegative: false
     };
 
     function format(input, settings) {
         var inputValue = input.value;
-        inputValue = removeNonDigits(inputValue);
+        inputValue = removeNonDigits(inputValue, settings.allowNegative);
         if (!settings.integer) {
-            inputValue = addDecimalSeparator(inputValue, settings);
+            inputValue = addDecimalSeparator(inputValue);
         }
         inputValue = addThousandSeparator(inputValue, settings);
         inputValue = removeLeftZeros(inputValue);
         applyNewValue(input, inputValue);
     }
     
-    function removeNonDigits(value) {
-        return value.replace(/\D/g, "");
+    function removeNonDigits(value, allowNegative) {
+        return ((allowNegative && value[0] === "-") ? "-" : "") + value.replace(/\D/g, "");
     }
     
     function addDecimalSeparator(value, settings) {
