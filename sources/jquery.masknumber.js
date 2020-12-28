@@ -27,14 +27,15 @@
         thousands: ",",
         decimal: ".",
         integer: false,
-        allowNegative: false
+        allowNegative: false,
+        digit: 2
     };
 
     function format(input, settings) {
         var inputValue = input.value;
         inputValue = removeNonDigits(inputValue, settings.allowNegative);
         if (!settings.integer) {
-            inputValue = addDecimalSeparator(inputValue);
+            inputValue = addDecimalSeparator(inputValue, settings);
         }
         inputValue = addThousandSeparator(inputValue, settings);
         inputValue = removeLeftZeros(inputValue);
@@ -46,8 +47,8 @@
     }
     
     function addDecimalSeparator(value, settings) {
-        value = value.replace(/(\d{2})$/, settings.decimal.concat("$1"));
-        value = value.replace(/(\d+)(\d{3}, \d{2})$/g, "$1".concat(settings.thousands).concat("$2"));
+        value = value.replace(new RegExp("(\\d{" + settings.digit + "})$"), settings.decimal.concat("$1"));
+        value = value.replace(new RegExp("(\\d+)(\\d{3}, \\d{" + settings.digit + "})$", "g"), "$1".concat(settings.thousands).concat("$2"));
         return value;
     }
     
